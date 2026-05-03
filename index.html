@@ -1,7 +1,205 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aleksander Karshikoff | Portfolio 2026</title>
+    <style>
+        body {
+            margin: 0;
+            background-color: #050505;
+            color: #fff;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            overflow: hidden;
+        }
+        
+        .slide-container {
+            height: 100vh;
+            overflow-y: scroll;
+            scroll-snap-type: y mandatory;
+            scroll-behavior: smooth;
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+        .slide-container::-webkit-scrollbar { display: none; }
+        
+        .slide {
+            height: 100vh;
+            width: 100%;
+            scroll-snap-align: start;
+            scroll-snap-stop: always;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            background-color: #000;
+        }
+        
+        .slide-content {
+            position: relative;
+            /* 16:9 aspect ratio */
+            width: 100vw;
+            height: calc(100vw * 9 / 16);
+            max-height: 100vh;
+            max-width: calc(100vh * 16 / 9);
+        }
+        
+        .slide-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+        
+        .hyperlink {
+            position: absolute;
+            cursor: pointer;
+            z-index: 10;
+            /* background-color: rgba(255, 0, 0, 0.3); Uncomment to debug link areas */
+        }
+        
+        /* Navigation Dots */
+        .dot-nav {
+            position: fixed;
+            right: 2rem;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 100;
+        }
+        .dot-nav ul {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            padding: 0;
+            margin: 0;
+        }
+        .dot-nav li {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.3);
+            cursor: pointer;
+            transition: all 0.4s ease;
+        }
+        .dot-nav li:hover { background-color: rgba(255, 255, 255, 0.6); transform: scale(1.2); }
+        .dot-nav li.active { background-color: #fff; transform: scale(1.4); box-shadow: 0 0 10px rgba(255, 255, 255, 0.5); }
+    </style>
+</head>
 <body>
-    <h1>My New Website is Live!</h1>
-    <p>Built on GitHub Pages in 2026.</p>
+    <div class="slide-container" id="slideContainer">
+        <section class="slide" id="slide-1">
+            <div class="slide-content">
+                <img src="assets/page_1.jpg" class="slide-bg" alt="Slide 1">
+                
+                <!-- Overlay to change 2025 to 2026 on the image -->
+                <div class="element text-element" style="position: absolute; left: 13.14%; top: 55.07%; width: 73.71%; height: 5%; background-color: #000000; color: #FFFFFF; font-size: 1.3vw; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; display: flex; align-items: flex-start; justify-content: center; font-weight: 300; letter-spacing: 0.02em;">Aleksander Karshikoff | 2026</div>
+            </div>
+        </section>
+        <section class="slide" id="slide-2">
+            <div class="slide-content">
+                <img src="assets/page_2.jpg" class="slide-bg" alt="Slide 2">
+                
+                <!-- Perfectly aligned images to cover PDF misalignment -->
+                <img src="assets/image6.jpg" style="position: absolute; left: 50%; top: 0; width: 50%; height: 50%; object-fit: cover;">
+                <img src="assets/image9.png" style="position: absolute; left: 0; top: 50%; width: 50%; height: 50%; object-fit: cover;">
+                <img src="assets/image11.png" style="position: absolute; left: 50%; top: 50%; width: 50%; height: 50%; object-fit: cover;">
+                
+                <a href="https://www.youtube.com/watch?v=eXYUNrgqWUU&ab_channel=Unity" target="_blank" class="hyperlink" style="left: 1.3312006944444443%; top: 88.74453333333334%; width: 1.4610813888888887%; height: 2.597478024691359%;"></a>
+                <a href="https://youtu.be/iQZobAhgayA?si=5JP145y2xw4gNEWV" target="_blank" class="hyperlink" style="left: 97.63315277777778%; top: 88.74453333333334%; width: 1.4610763888888951%; height: 2.597478024691359%;"></a>
+                <a href="https://youtu.be/o1JIK5W3DRU?si=tMcc2PA845-ksOPN" target="_blank" class="hyperlink" style="left: 97.2408125%; top: 38.26577283950617%; width: 1.4610763888888794%; height: 2.597479012345679%;"></a>
+            </div>
+        </section>
+        <section class="slide" id="slide-3">
+            <div class="slide-content">
+                <img src="assets/page_3.jpg" class="slide-bg" alt="Slide 3">
+                <a href="https://youtu.be/U1XVtLLdMeM?si=ahKmndhkc9Pll7uJ" target="_blank" class="hyperlink" style="left: 98.4908125%; top: 36.864004938271606%; width: 1.4610763888888794%; height: 2.597476543209876%;"></a>
+                <a href="https://learn.unity.com/project/getting-started-with-hair-simulation" target="_blank" class="hyperlink" style="left: 98.4908125%; top: 0%; width: 1.4610763888888794%; height: 2.5974814814814753%;"></a>
+                <a href="https://youtu.be/oEKHRMJ8w8U?si=CpL60CAVKHm_qCTI" target="_blank" class="hyperlink" style="left: 18.538933333333336%; top: 0%; width: 1.4610805555555553%; height: 2.5974814814814753%;"></a>
+                <a href="https://www.youtube.com/watch?v=Lu7zyqHMB8Q&ab_channel=Unity" target="_blank" class="hyperlink" style="left: 78.51487083333333%; top: 0%; width: 1.4610791666666658%; height: 2.5974814814814753%;"></a>
+                <a href="https://youtu.be/7Hd31p57X0g?si=wqTBifsI2s0qtDrf" target="_blank" class="hyperlink" style="left: 78.53893055555557%; top: 36.864004938271606%; width: 1.461083333333322%; height: 2.597476543209876%;"></a>
+                <a href="https://assetstore.unity.com/packages/essentials/tutorial-projects/book-of-the-dead-environment-hdrp-121175" target="_blank" class="hyperlink" style="left: 58.53879722222223%; top: 36.864004938271606%; width: 1.4610777777777726%; height: 2.597476543209876%;"></a>
+                <a href="https://assetstore.unity.com/packages/essentials/tutorial-projects/enemies-hdrp-248975" target="_blank" class="hyperlink" style="left: 58.52676805555556%; top: 0%; width: 1.4610791666666658%; height: 2.5974814814814753%;"></a>
+                <a href="https://www.youtube.com/watch?v=BTM6_pU8RM8&t=317s&ab_channel=Unity" target="_blank" class="hyperlink" style="left: 38.53879722222223%; top: 36.864004938271606%; width: 1.4610777777777726%; height: 2.597476543209876%;"></a>
+                <a href="https://assetstore.unity.com/packages/templates/the-heretic-digital-human-hdrp-168620" target="_blank" class="hyperlink" style="left: 38.53879722222223%; top: 0%; width: 1.4610777777777726%; height: 2.5974814814814753%;"></a>
+                <a href="https://www.youtube.com/watch?v=3WDHzNYf86I&t=16s&ab_channel=Unity" target="_blank" class="hyperlink" style="left: 18.538933333333336%; top: 36.864004938271606%; width: 1.4610805555555553%; height: 2.597476543209876%;"></a>
+            </div>
+        </section>
+        <section class="slide" id="slide-4">
+            <div class="slide-content">
+                <img src="assets/page_4.jpg" class="slide-bg" alt="Slide 4">
+                <a href="https://www.youtube.com/watch?v=efGqe1j3RNk&ab_channel=Unity" target="_blank" class="hyperlink" style="left: 57.99076111111112%; top: 11.641876543209866%; width: 1.4610791666666658%; height: 2.5974814814814895%;"></a>
+                <a href="https://www.youtube.com/watch?v=yggoHVLd01c&t=1s&ab_channel=Unity" target="_blank" class="hyperlink" style="left: 8.069225972222222%; top: 61.64187901234568%; width: 1.4610809722222238%; height: 2.597479012345679%;"></a>
+            </div>
+        </section>
+        <section class="slide" id="slide-5">
+            <div class="slide-content">
+                <img src="assets/page_5.jpg" class="slide-bg" alt="Slide 5">
+                <a href="https://www.youtube.com/watch?v=DDsRfbfnC_A&ab_channel=Unity" target="_blank" class="hyperlink" style="left: 97.2408125%; top: 37.42928395061728%; width: 1.4610763888888794%; height: 2.5974740740740727%;"></a>
+                <a href="https://youtu.be/GXI0l3yqBrA?si=Xngl0jwPm9zsTdpa" target="_blank" class="hyperlink" style="left: 97.2408125%; top: 87.48128814814815%; width: 1.4610763888888794%; height: 2.597478271604937%;"></a>
+                <a href="https://www.youtube.com/watch?v=5ePB_bQT-iI&ab_channel=Unity" target="_blank" class="hyperlink" style="left: 1.364555972222222%; top: 88.17877037037036%; width: 1.461081527777778%; height: 2.5974780246913607%;"></a>
+            </div>
+        </section>
+        <section class="slide" id="slide-6">
+            <div class="slide-content">
+                <img src="assets/page_6.jpg" class="slide-bg" alt="Slide 6">
+                <a href="https://www.youtube.com/watch?v=7bcEzyJ43lQ&ab_channel=TheMatchFactory" target="_blank" class="hyperlink" style="left: 88.49245833333333%; top: 86.66375160493828%; width: 1.4610791666666658%; height: 2.597478024691357%;"></a>
+            </div>
+        </section>
+        <section class="slide" id="slide-7">
+            <div class="slide-content">
+                <img src="assets/page_7.jpg" class="slide-bg" alt="Slide 7">
+                <a href="https://youtu.be/5lU6mHVUVXU?si=mMGH2AH_JaYKS1AA" target="_blank" class="hyperlink" style="left: 15.801618055555558%; top: 71.3709061728395%; width: 1.4610819444444445%; height: 2.597479012345679%;"></a>
+                <a href="https://youtu.be/OP1vfgB4ZcE?si=--g8kRr_cGr_gqP6" target="_blank" class="hyperlink" style="left: 50.6893888888889%; top: 70.88193827160494%; width: 1.4610791666666658%; height: 2.597480000000005%;"></a>
+                <a href="https://www.imdb.com/video/vi2272114969/?ref_=tt_vids_vi_1" target="_blank" class="hyperlink" style="left: 83.33634305555557%; top: 70.31083086419754%; width: 1.4610791666666658%; height: 2.5974777777777738%;"></a>
+            </div>
+        </section>
+        <section class="slide" id="slide-8">
+            <div class="slide-content">
+                <img src="assets/page_8.jpg" class="slide-bg" alt="Slide 8">
+                <a href="https://www.youtube.com/watch?v=4vGgAk2NDO8&ab_channel=%C3%85saNorberg" target="_blank" class="hyperlink" style="left: 17.148130555555557%; top: 54.34844938271605%; width: 1.4610819444444445%; height: 2.597479012345679%;"></a>
+                <a href="https://www.youtube.com/watch?v=CeYCfuCDwcA&ab_channel=FilmlanceInternationalAB" target="_blank" class="hyperlink" style="left: 44.29694444444444%; top: 54.3482074074074%; width: 1.4610777777777804%; height: 2.597476543209876%;"></a>
+                <a href="https://www.youtube.com/watch?v=RIvz3m0gpWc&ab_channel=NordiskFilmSverige" target="_blank" class="hyperlink" style="left: 61.17207777777778%; top: 54.3482074074074%; width: 1.4610847222222232%; height: 2.597476543209876%;"></a>
+                <a href="https://www.youtube.com/watch?v=bCt4oXeWGjw&ab_channel=MovieZine" target="_blank" class="hyperlink" style="left: 88.16724166666667%; top: 54.34844938271605%; width: 1.4610777777777646%; height: 2.597479012345679%;"></a>
+            </div>
+        </section>
+        <section class="slide" id="slide-9">
+            <div class="slide-content">
+                <img src="assets/page_9.jpg" class="slide-bg" alt="Slide 9">
+                <a href="https://www.youtube.com/watch?v=rwsXPE9-vrQ&ab_channel=N0RDfilm" target="_blank" class="hyperlink" style="left: 47.529388888888896%; top: 0%; width: 1.46108333333333%; height: 2.5974814814814753%;"></a>
+                <a href="https://www.youtube.com/watch?v=ZSYQ0IbNsBw&ab_channel=RottenTomatoesTrailers" target="_blank" class="hyperlink" style="left: 23.034229166666666%; top: 0%; width: 1.4610819444444445%; height: 2.5974814814814753%;"></a>
+                <a href="https://www.youtube.com/watch?v=83FcxzlXbKs&ab_channel=NordicNoir%26Beyond" target="_blank" class="hyperlink" style="left: 22.64216944444445%; top: 50%; width: 1.4610819444444445%; height: 2.5974790123456724%;"></a>
+                <a href="https://www.youtube.com/watch?v=ypB8JpbxusM&ab_channel=saftfan" target="_blank" class="hyperlink" style="left: 47.52952777777778%; top: 50%; width: 1.4610833333333377%; height: 2.5974790123456724%;"></a>
+                <a href="https://www.youtube.com/watch?v=AYwVRXD9TKo&ab_channel=MovieZine" target="_blank" class="hyperlink" style="left: 72.024825%; top: 0%; width: 1.4610777777777804%; height: 2.5974814814814753%;"></a>
+                <a href="https://www.youtube.com/watch?v=gzkPcxMbRZU&ab_channel=NjutafilmsStudioS" target="_blank" class="hyperlink" style="left: 72.024825%; top: 50%; width: 1.4610777777777804%; height: 2.5974790123456724%;"></a>
+            </div>
+        </section>
+        <section class="slide" id="slide-10">
+            <div class="slide-content">
+                <img src="assets/page_10.jpg" class="slide-bg" alt="Slide 10">
+                <a href="https://www.imdb.com/name/nm2198897/" target="_blank" class="hyperlink" style="left: 58.17843611111111%; top: 55.07485185185185%; width: 3.825679166666668%; height: 3.2592567901234535%;"></a>
+            </div>
+        </section>
+
+    </div>
+
+    <nav class="dot-nav">
+        <ul>
+            <li class="active" data-target="1"></li>
+            <li data-target="2"></li>
+            <li data-target="3"></li>
+            <li data-target="4"></li>
+            <li data-target="5"></li>
+            <li data-target="6"></li>
+            <li data-target="7"></li>
+            <li data-target="8"></li>
+            <li data-target="9"></li>
+            <li data-target="10"></li>
+
+        </ul>
+    </nav>
+    <script src="script.js"></script>
 </body>
 </html>
