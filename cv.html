@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Aleksander Karshikoff | CV</title>
+    <style>
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            font-size: 115%;
+        }
+
+        body {
+            background-color: #000;
+            color: #fff;
+            font-family: Arial, sans-serif;
+            font-weight: 400;
+            font-size: 15px;
+            line-height: 1.7;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        /* ── Return button ── */
+        .return-btn {
+            position: fixed;
+            top: 2rem;
+            left: 2rem;
+            font-family: Arial, sans-serif;
+            font-size: 0.85vw;
+            font-weight: 400;
+            color: #fff;
+            text-decoration: none;
+            opacity: 0.9;
+            transition: color 0.3s ease;
+            z-index: 100;
+        }
+
+        .return-btn:hover {
+            color: #fff;
+            text-decoration: none;
+        }
+
+        .back-btn-container {
+            display: flex;
+            justify-content: center;
+            margin-top: 5rem;
+            margin-bottom: 2rem;
+        }
+
+        .back-btn {
+            position: relative;
+            font-family: Arial, sans-serif;
+            font-size: 0.85vw;
+            color: #ffffff;
+            text-decoration: none;
+            padding: 0.5rem 2rem;
+            transition: transform 0.4s ease;
+            font-weight: 400;
+            opacity: 0.9;
+        }
+
+        .back-btn:hover {
+            transform: scale(1.05);
+            text-decoration: none;
+        }
+
+        .back-btn::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 1px;
+            bottom: 0;
+            left: 50%;
+            background-color: #ffffff;
+            transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+            transform: translateX(-50%);
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
+        }
+
+        .back-btn:hover::after {
+            width: 80%;
+        }
+
+        /* ── Page layout ── */
+        .page {
+            max-width: 860px;
+            margin: 0 auto;
+            padding: 5rem 2rem 6rem;
+        }
+
+        /* ── Header ── */
+        .cv-header {
+            margin-bottom: 3rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid #222;
+        }
+
+        .cv-name {
+            font-size: 2.2rem;
+            font-weight: 700;
+            letter-spacing: -0.01em;
+            margin-bottom: 0.3rem;
+        }
+
+        .cv-title {
+            font-size: 0.95rem;
+            font-weight: 400;
+            color: #fff;
+            margin-bottom: 1.2rem;
+        }
+
+        .cv-contact {
+            font-size: 0.78rem;
+            color: #fff;
+            line-height: 1.9;
+        }
+
+        .cv-contact a:hover {
+            color: #fff;
+        }
+
+        .cv-contact-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.2rem 2rem;
+        }
+
+        /* ── Sections ── */
+        .section {
+            margin-bottom: 2.8rem;
+        }
+
+        .section-title {
+            font-size: 0.65rem;
+            font-weight: 600;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: #fff;
+            margin-bottom: 1.2rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid #1a1a1a;
+        }
+
+        /* Summary */
+        .summary-text {
+            font-size: 0.875rem;
+            color: #fff;
+            max-width: 780px;
+        }
+
+        /* Experience */
+        .org {
+            margin-bottom: 2rem;
+        }
+
+        .org-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            flex-wrap: wrap;
+            gap: 0.3rem;
+            margin-bottom: 0.8rem;
+        }
+
+        .org-name {
+            font-size: 0.95rem;
+            font-weight: 600;
+        }
+
+        .org-location {
+            font-size: 0.75rem;
+            color: #fff;
+        }
+
+        .role {
+            display: grid;
+            grid-template-columns: 1fr auto;
+            column-gap: 1rem;
+            row-gap: 0.3rem;
+            align-items: baseline;
+            margin-bottom: 1.2rem;
+        }
+
+        .role-header {
+            display: contents;
+        }
+
+        .role-title {
+            font-size: 0.85rem;
+            font-weight: 500;
+            color: #fff;
+            flex: 1;
+            min-width: 0;
+        }
+
+        .role-date {
+            font-size: 0.75rem;
+            color: #fff;
+            white-space: nowrap;
+            flex-shrink: 0;
+        }
+
+        .bullet-list {
+            list-style: none;
+            padding-left: 1.5rem;
+            grid-column: 1;
+        }
+
+        .bullet-list li {
+            font-size: 0.8rem;
+            color: #fff;
+            padding-left: 1rem;
+            position: relative;
+            margin-bottom: 0.3rem;
+        }
+
+        .bullet-list li::before {
+            content: '–';
+            position: absolute;
+            left: 0;
+            color: #fff;
+        }
+
+        /* Education */
+        .edu-item {
+            margin-bottom: 1.1rem;
+        }
+
+        .edu-name {
+            font-size: 0.85rem;
+            font-weight: 500;
+            color: #fff;
+        }
+
+        .edu-dates {
+            font-size: 0.75rem;
+            color: #fff;
+        }
+
+        .edu-detail {
+            font-size: 0.78rem;
+            color: #fff;
+        }
+
+        /* Skills grid */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem 2rem;
+        }
+
+        .skill-group-title {
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: #fff;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Languages */
+        .lang-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .lang-table tr td {
+            padding: 0.2rem 0;
+            font-size: 0.8rem;
+        }
+
+        .lang-table tr td:first-child {
+            font-weight: 500;
+            color: #fff;
+            width: 180px;
+        }
+
+        .lang-table tr td:last-child {
+            color: #fff;
+        }
+
+        /* Awards / Leadership */
+        .item-list {
+            list-style: none;
+        }
+
+        .item-list li {
+            font-size: 0.8rem;
+            color: #fff;
+            padding-left: 1rem;
+            position: relative;
+            margin-bottom: 0.35rem;
+        }
+
+        .item-list li::before {
+            content: '–';
+            position: absolute;
+            left: 0;
+            color: #fff;
+        }
+    </style>
+</head>
+
+<body>
+
+
+    <div class="page">
+
+        <!-- Header -->
+        <header class="cv-header">
+            <h1 class="cv-name">Aleksander Karshikoff</h1>
+            <p class="cv-title">Creative Producer | Real-Time &amp; Film Production Leader</p>
+            <div class="cv-contact">
+                <div class="cv-contact-row">
+                    <span>Stockholm - Sweden</span>
+                    <span>+46 704 33 89 32</span>
+                    <span>karshikoff@gmail.com</span>
+                    <a href="https://www.linkedin.com/in/aleksander-karshikoff-a1b75057" target="_blank">LinkedIn</a>
+                    <a href="https://www.imdb.com/name/nm2198897/" target="_blank">IMDb</a>
+                </div>
+            </div>
+        </header>
+
+        <!-- Professional Summary -->
+        <section class="section">
+            <h2 class="section-title">Professional Summary</h2>
+            <p class="summary-text">Award-winning creative producer with 15+ years of experience spanning film, TV, and
+                real-time 3D content. Proven track record across feature films, TV series, and industry-acclaimed short
+                films. Skilled at leading cross-functional teams and managing challenging productions from concept to
+                completion. Results-driven, multilingual, and a resourceful problem-solver—deeply committed to
+                collaborative creative processes. Thrives on active involvement, never missing a chance to contribute
+                hands-on to projects and always ready to offer support in any capacity. No task is too small.</p>
+        </section>
+
+        <!-- Professional Experience -->
+        <section class="section">
+            <h2 class="section-title">Professional Experience</h2>
+
+            <div class="org">
+                <div class="org-header">
+                    <span class="org-name">Gunzilla Games</span>
+                    <span class="org-location">Frankfurt, Germany (remote)</span>
+                </div>
+                <div class="role">
+                    <div class="role-header">
+                        <span class="role-title">Senior Creative Producer</span>
+                        <span class="role-date">Jul 2025 – March 2026</span>
+                    </div>
+                    <ul class="bullet-list">
+                        <li>Produces and coordinates Animation, Tech Animation, Character and Cinematics pipelines to
+                            ensure timely, high-quality delivery across disciplines</li>
+                        <li>Owns rendering and content pack assets, maintaining visual consistency and technical
+                            performance standards</li>
+                        <li>Collaborates with design, art, and engineering to translate creative briefs into shippable
+                            cinematic experiences that support gameplay and narrative goals</li>
+                        <li>Owns cinematics in Unreal Engine for key narrative gameplay moments</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="org">
+                <div class="org-header">
+                    <span class="org-name">Unity Technologies</span>
+                    <span class="org-location">Stockholm, Sweden</span>
+                </div>
+                <div class="role">
+                    <div class="role-header">
+                        <span class="role-title">Senior Manager, Content Production</span>
+                        <span class="role-date">Mar 2022 – Jun 2025</span>
+                    </div>
+                    <ul class="bullet-list">
+                        <li>Spearheaded production of high-profile real-time projects with the Unity Demo Team—a
+                            pioneering internal creative team whose real-time work has drawn over 70 million views since
+                            its inception</li>
+                        <li>Managed cross-organisational relations and collaborations to ensure tools and technologies
+                            developed by other Unity teams and external partners were effectively adopted in the team's
+                            productions</li>
+                    </ul>
+                </div>
+                <div class="role">
+                    <div class="role-header">
+                        <span class="role-title">Senior Producer</span>
+                        <span class="role-date">Sep 2020 – Mar 2022</span>
+                    </div>
+                    <ul class="bullet-list">
+                        <li>Oversaw end-to-end production of advanced Unity cinematic demo The Heretic, leading a team
+                            of 15+ across 4 time zones</li>
+                        <li>Drove the production of Know-How sharing, Platform &amp; Feature Demos, and external
+                            marketing and promotional content</li>
+                        <li>Supported workflow innovation and creative excellence across the team</li>
+                    </ul>
+                </div>
+                <div class="role">
+                    <div class="role-header">
+                        <span class="role-title">Producer</span>
+                        <span class="role-date">Aug 2019 – Sep 2020</span>
+                    </div>
+                    <ul class="bullet-list">
+                        <li>Led the production of Windup, a real-time 3D short created by a global team spanning eight
+                            countries and four continents, earning six awards and three nominations during its animation
+                            festival circuit</li>
+                        <li>Coordinated the ongoing production of Unity's flagship storytelling content, positioning the
+                            Unity brand as a leader in real-time innovation and creativity</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="org">
+                <div class="org-header">
+                    <span class="org-name">Across The Alley</span>
+                    <span class="org-location">Stockholm, Sweden</span>
+                </div>
+                <div class="role">
+                    <div class="role-header">
+                        <span class="role-title">Independent Motion Picture Professional</span>
+                        <span class="role-date">Aug 2015 – Aug 2019</span>
+                    </div>
+                    <ul class="bullet-list">
+                        <li>Freelance co-producer and post-producer across feature films and shorts</li>
+                        <li>Sound design and re-recording mix work on selected projects</li>
+                        <li>Co-producer of <em>The Real Estate</em>, selected to compete for the Golden Bear in the main
+                            competition section at the 68th Berlin International Film Festival</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="org">
+                <div class="org-header">
+                    <span class="org-name">Europa Sound Production</span>
+                    <span class="org-location">Stockholm, Sweden</span>
+                </div>
+                <div class="role">
+                    <div class="role-header">
+                        <span class="role-title">Senior Sound Designer | Sound Supervisor | Re-recording Mixer</span>
+                        <span class="role-date">Jan 2007 – Jul 2015</span>
+                    </div>
+                    <ul class="bullet-list">
+                        <li>Delivered complete post-sound services for Scandinavian and international productions</li>
+                        <li>Led audio teams in dialogue editing, ADR, Foley, sound design, and final mix for theatrical
+                            release</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="org">
+                <div class="org-header">
+                    <span class="org-name">Housework SoundDesign</span>
+                    <span class="org-location">Stockholm, Sweden</span>
+                </div>
+                <div class="role">
+                    <div class="role-header">
+                        <span class="role-title">Sound Editor</span>
+                        <span class="role-date">Jan 2005 – Jul 2006</span>
+                    </div>
+                    <ul class="bullet-list">
+                        <li>Internship leading to permanent employment upon completion of studies</li>
+                        <li>Sound editor on commercials, film and TV projects</li>
+                        <li>Data cleaning, wrangling, and organization to ensure accuracy and consistency for audio
+                            production</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Education -->
+        <section class="section">
+            <h2 class="section-title">Education</h2>
+            <div class="edu-item">
+                <div class="edu-name">Dramatiska Institutet / Stockholm Academy of Dramatic Arts</div>
+                <div class="edu-dates">2003 – 2006</div>
+                <div class="edu-detail">Studies in Film Production — Bachelor, Sound Design</div>
+            </div>
+            <div class="edu-item">
+                <div class="edu-name">Stockholm University</div>
+                <div class="edu-dates">1999 – 2003</div>
+                <div class="edu-detail">Studies in Film, Theatre, and Music — Bachelor; Master's studies discontinued
+                    prior to completion</div>
+            </div>
+            <div class="edu-item">
+                <div class="edu-name">Deutsche Schule Stockholm</div>
+                <div class="edu-dates">1998</div>
+                <div class="edu-detail">German Abitur</div>
+            </div>
+        </section>
+
+        <!-- Skills -->
+        <section class="section">
+            <h2 class="section-title">Skill Set</h2>
+            <div class="skills-grid">
+                <div>
+                    <div class="skill-group-title">Creative &amp; Technical</div>
+                    <ul class="bullet-list">
+                        <li>Real-Time 3D Production</li>
+                        <li>Film/TV Production</li>
+                        <li>Script Editorial &amp; Narrative Structuring</li>
+                        <li>Post-Production Supervision</li>
+                        <li>Music Supervision</li>
+                        <li>Talent Direction</li>
+                    </ul>
+                </div>
+                <div>
+                    <div class="skill-group-title">Project &amp; Team Leadership</div>
+                    <ul class="bullet-list">
+                        <li>Cross-Functional Team Leadership</li>
+                        <li>Agile &amp; Iterative Production Workflows</li>
+                        <li>Workflow Optimization</li>
+                        <li>Budgeting, Scheduling &amp; Resource Planning</li>
+                        <li>Hiring</li>
+                        <li>Legal &amp; Procurement</li>
+                        <li>Stakeholder Relations</li>
+                    </ul>
+                </div>
+                <div>
+                    <div class="skill-group-title">Soft Skills</div>
+                    <ul class="bullet-list">
+                        <li>Creative Problem-Solving</li>
+                        <li>Cross-Cultural Collaboration</li>
+                        <li>Clear Communication</li>
+                        <li>Conflict Resolution &amp; Mediation</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Languages -->
+        <section class="section">
+            <h2 class="section-title">Languages</h2>
+            <table class="lang-table">
+                <tr>
+                    <td>Swedish</td>
+                    <td>Native or bilingual</td>
+                </tr>
+                <tr>
+                    <td>German</td>
+                    <td>Full Professional Proficiency</td>
+                </tr>
+                <tr>
+                    <td>English</td>
+                    <td>Full Professional Proficiency</td>
+                </tr>
+                <tr>
+                    <td>Bulgarian</td>
+                    <td>Professional Working Proficiency</td>
+                </tr>
+                <tr>
+                    <td>Polish</td>
+                    <td>Limited Working Proficiency</td>
+                </tr>
+            </table>
+        </section>
+
+        <!-- Awards -->
+        <section class="section">
+            <h2 class="section-title">Awards &amp; Nominations</h2>
+            <ul class="item-list">
+                <li>Winner Jury Prize, Best Animation Short – Urbanworld Film Festival (2020)</li>
+                <li>Winner Jury Award, Best Animation – Reel Sisters of the Diaspora Film Festival (2020)</li>
+                <li>Winner, Best Animation – Oniros Film Awards (2020)</li>
+                <li>Award, Outstanding Achievement – Indie Short Fest (2020)</li>
+                <li>Winner Webby People's Voice, Animation (Branded) (2018) — with Unity Demo Team</li>
+                <li>Winner Webby, Animation (Branded) (2017) — with Unity Demo Team</li>
+                <li>Nomination Golden Reel Award, MPSE (USA) – Best Sound in a Foreign Feature Film (2013)</li>
+                <li>Award, Anders Sandrews Foundation – Scholarship for a valued and respected artistic achievement
+                    (2005)</li>
+            </ul>
+        </section>
+
+        <!-- Leadership & Teaching -->
+        <section class="section">
+            <h2 class="section-title">Leadership &amp; Teaching</h2>
+            <ul class="item-list">
+                <li>Board Member, Stockholm Film School (2014–2015)</li>
+                <li>Instructor at Dalarna University (2013)</li>
+                <li>Instructor at Stockholm Academy of Dramatic Arts (2012)</li>
+                <li>Vice President, Film Sound Sweden (2010–2011)</li>
+            </ul>
+        </section>
+
+        <div class="back-btn-container">
+            <a href="index.html" class="back-btn">Return</a>
+        </div>
+    </div>
+</body>
+
+</html>
